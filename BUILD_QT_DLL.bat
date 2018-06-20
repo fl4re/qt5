@@ -24,11 +24,13 @@ mkdir %OUT_DIR%\%BUILD_ID%\qtbase\lib
 if !errorlevel! neq 0 exit /b !errorlevel!
 
 copy Qt\x64-msvc2015-static\qtbase\lib\qtpcre.lib Qt\x64-msvc2015\qtbase\lib\
+copy Qt\x64-msvc2015-static\qtbase\lib\qtpcred.lib Qt\x64-msvc2015\qtbase\lib\
 copy Qt\x64-msvc2015-static\qtbase\lib\qtharfbuzzng.lib Qt\x64-msvc2015\qtbase\lib\
+copy Qt\x64-msvc2015-static\qtbase\lib\qtharfbuzzngd.lib Qt\x64-msvc2015\qtbase\lib\
 
 pushd %OUT_DIR%\%BUILD_ID%
 if !errorlevel! neq 0 exit /b !errorlevel!
-call ..\..\configure -prefix %BUILD_ID% -platform %QMAKESPEC% -release -confirm-license -opensource -opengl desktop -mp -qt-zlib -qt-pcre -qt-freetype -qt-libpng -qt-libjpeg -direct2d -qt-harfbuzz -skip qt3d -skip qtactiveqt -skip qtandroidextras -skip qtcanvas3d -skip qtconnectivity -skip qtdeclarative -skip qtdoc -skip qtenginio -skip qtgraphicaleffects -skip qtimageformats -skip qtlocation -skip qtmacextras -skip qtmultimedia -skip qtquickcontrols -skip qtscript -skip qtsensors -skip qtserialport -skip qtsvg -skip qttools -skip qttranslations -skip qtwayland -skip qtwebchannel -skip qtwebengine -skip qtwebsockets -skip qtx11extras -skip qtxmlpatterns -nomake examples -nomake tools -nomake tests
+call ..\..\configure -prefix %BUILD_ID% -platform %QMAKESPEC% -debug-and-release -confirm-license -opensource -opengl desktop -mp -qt-zlib -qt-pcre -qt-freetype -qt-libpng -qt-libjpeg -direct2d -qt-harfbuzz -skip qt3d -skip qtactiveqt -skip qtandroidextras -skip qtcanvas3d -skip qtconnectivity -skip qtdeclarative -skip qtdoc -skip qtenginio -skip qtgraphicaleffects -skip qtimageformats -skip qtlocation -skip qtmacextras -skip qtmultimedia -skip qtquickcontrols -skip qtscript -skip qtsensors -skip qtserialport -skip qtsvg -skip qttools -skip qttranslations -skip qtwayland -skip qtwebchannel -skip qtwebengine -skip qtwebsockets -skip qtx11extras -skip qtxmlpatterns -nomake examples -nomake tools -nomake tests
 if !errorlevel! neq 0 exit /b !errorlevel!
 
 CALL jom.exe /j 8 install
