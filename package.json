@@ -1,6 +1,7 @@
 {
   "name": "@sb/qt5",
   "version": "__FL4RE_VERSION__",
+  "license": "LGPL-2.1-or-later",
   "description": "fl4re qt5",
   "repository": "https://github.com/fl4re/qt5",
   "private": false,
